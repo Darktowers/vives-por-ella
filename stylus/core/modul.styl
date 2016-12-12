@@ -12,6 +12,11 @@
     font-style: normal;
 @import "nib"
 @import "nib/vendor"
+@keyframes light
+	from
+        box-shadow: 0px 0px 6px 1px #FFF;
+    to
+        box-shadow: 0px 0px 6px 2px #FFF;        
 //estrellas
 .back-Star
     position: fixed;
@@ -23,17 +28,22 @@
         border-radius: 50%;
 .start0
     background: #FFFFFF;
+    animation light .10s infinite alternate
 .start1
     background: #fff;
-
+    animation light .8s infinite alternate
 .start2
     background: #fff;
+    animation light .6s infinite alternate
 .start3
     background-color: #fff;
+    animation light .4s infinite alternate
 .start4
     background-color: #fff;
+    animation light .2s infinite alternate
 .start5
     background-color: #fff;
+    animation light .1s infinite alternate
 .form
     input[type=text]
     input[type=email]
@@ -42,6 +52,8 @@
     select
         color #1d1d1d
         outline-color: #03A9F4;
+.close
+    cursor: pointer
 .form-Modal
     display: none;
     width: 100%;
@@ -55,7 +67,7 @@
     background: rgba(38, 50, 56, 0.63);
     font-size: 13px;
     .form
-        max-width: 400px;
+        max-width: 500px;
         width: 100%
         position: relative
         display: none;
@@ -145,21 +157,65 @@ body
                             background: #585b5f
         .logo
             width: 150px;
+            .universal
+                position: absolute;
+                right: 0;
+                padding: 1em;
+                margin: .2em;
+                display: none
             img
                 width: 150px;
+            a
+                display: none
+                color #6d6e71 !important
+                transition: all .3s ease-in-out
+                &:hover
+                    color white !important
+.rowUp
+    position: fixed;
+    bottom: 0;
+    border: 1px solid;
+    width: 60px;
+    height: 60px;
+    z-index: 99;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    border-radius: 50%;
+    margin: 2em;
+    cursor: pointer
+    display: none
 .footer
     padding-top: 6em;
+    .social 
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        font-size: 1.6em;
+        max-width: 215px;
+        margin: 0 auto;
+        padding-bottom: 1em;
+        a
+            i
+                transform scale(1)
+                transition all .3s ease-in-out
+                &:hover
+                    transform scale(1.2)
+                    
     .container
         position: relative;
-        .social 
-            display: flex;
-            justify-content: space-around;
-            align-items: center;
-            font-size: 1.6em;
-            max-width: 215px;
-            margin: 0 auto;
-            padding-bottom: 1em;
         .site-Map
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            ul
+                display: flex;
+                list-style: none;
+                padding: 0;
+                flex-wrap: wrap;
+                justify-content: center;
+                li
+                    padding: 0 .5em;
             p
                 text-align: center
         .mundo
@@ -173,6 +229,8 @@ body
     justify-content: center;
     align-items: center;
     display: none
+    flex-direction: column;
+    width: 100%;
     .video-cont
         width: 95%;
         height: 100%;
@@ -181,6 +239,34 @@ body
         iframe
             width: 100%;
             height: 100%;
+.video-Link
+    width: 100%;
+    position: relative;
+    label
+        display flex
+        .question
+            padding: 0 1em
+    
+    .info
+        position: absolute;
+        z-index: 2;
+        background: rgba(128, 128, 128, 0.82);
+        max-width: 300px;
+        right: -20px;
+        top: 2px;
+        padding: .5em;
+        display: none
+        .title
+            display: flex;
+            align-items: center;
+            p
+                margin: 0;
+                margin-left: .3em;
+        p
+            margin: .5em 0;
+
+
+
 .video
     max-width: 1000px;
     margin: 0 auto;
@@ -190,6 +276,9 @@ body
             display: none
     &-Back
         position: relative;
+        max-width: 1000px;
+        max-height: 500px;
+        overflow: hidden;
         img
             width: 100%
         .layout
@@ -202,6 +291,7 @@ body
             align-items: center;
             z-index: 1;
             .play
+                cursor: pointer
                 i
                     font-size: 6em;
                     color: rgba(8, 26, 53, 0.44);
@@ -224,11 +314,17 @@ body
         a
             font-size: 1em;
             padding 0 1em;
+            i
+                transform scale(1)
+                transition all .3s ease-in-out
+                &:hover
+                    transform scale(1.2)
     .text
         padding: 0 2em;
         h2
             font-size: 14px;
             font-weight: lighter;
+            text-align: center
         p
             font-size: 12px;
     .down
@@ -238,7 +334,8 @@ body
 .forms
     .forms-Info
         background: rgba(8,26,53,0.8);
-        max-width: 250px;
+        width: 250px;
+        max-width: 500px
         padding: 1em 2.5em;
         margin: 0 auto;
         text-align: center;
@@ -255,8 +352,96 @@ body
         display: flex;
         justify-content: center;
         padding: 2em 0;
+.form-Modal
+    form
+        h3
+            font-size: 12px;
+            font-weight: normal;
+            text-align: center;
+            margin: 0;
+@media (min-width: 1000px)
+    .menu
+        display: none
+    .logo
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: row;
+        width: 100% !important
+        .universal
+            display: block !important
+        img
+            width: 170px !important
+        a
+            padding: 0 3em;
+            display: flex !important
+    .footer
+        .social
+            position: fixed;
+            top: 35%;
+            flex-direction: column;
+            a
+                padding: .5em;
+    
+    body
+        font-size: 18px
+    .video
+        .text
+            h2
+                font-size: 32px
+                margin: 0
+            p
+                font-size: 16px;
+                text-align: center;
+                max-width: 420px;
+                margin: 0 auto;
+                padding-top: 1em;
+    .header
+        padding-bottom 2em
+
+    .form-Modal
+        form
+            font-size: 18px;
+            h3
+                font-size: 22px;
+                font-weight: normal;
+                text-align: center;
+                margin: 0;
+
+    .forms
+        display: flex !important
+        justify-content: center;
+        .down
+            display: none
+        &-Info
+            padding: 6em 3em !important
+            font-size: 18px;
+            margin: 0 !important
+            justify-content: flex-end;
+            width: auto !important
+            &:first-child
+                border-right: 1px solid;
+            h3
+                font-size: 32px !important
+    .modal-video
+        .video-cont
+            width: 100%;
+            height: 100%;
+            max-height: 630px !important;
+            max-width: 1088px !important;
+@media (max-width: 400px)
+    .modal-video
+        .video-cont
+            width: 100%;
+            height: 100%;
+            max-height: 250px !important;
+    .layout
+        img
+            width: 90px !important
 
 
+
+    
 
 
 

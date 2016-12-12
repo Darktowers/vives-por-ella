@@ -25,7 +25,10 @@
 				</ul>
 			</nav>
 			<div class="logo">
+				<a href="">EL PROYECTO</a>
 				<img src="img/logo-vives-por-ella.png" alt="Vives por ella">
+				<a href="">SUSCRIBETE</a>
+				<img src="img/universal.png" alt="" class="universal">
 			</div>
 		</div>
 	</div>
